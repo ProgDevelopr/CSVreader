@@ -13,8 +13,11 @@ while True:
             tm.sleep(c)
             break
         else:
+            d = str(input("Would you like the index numbers(y or n)?: "))
             b = pd.read_csv(a)
             print(b)
+            if d=="n" or d=="N" or d=="no":
+                print(b.to_string(index=False))
 
     except FileNotFoundError:
         print("Sorry, but your CSV file was not found. Please try again. The reader will come back in 5 seconds.")
@@ -24,4 +27,7 @@ while True:
         tm.sleep(5)
     except pd.errors.ParserError:
         print("Sorry, but your CSV file doesn't have the structure of a CSV (Rows and Columns). The reader will come back in 5 seconds.")
+        tm.sleep(5)
+    except TypeError:
+        print("Sorry, we encountered a TypeError. Please check your CSV again. The reader will come back in 5 seconds.")
         tm.sleep(5)
