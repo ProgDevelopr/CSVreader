@@ -4,7 +4,7 @@ while True:
         import time as tm
         import random as rn
     
-        a = str(input("Type your CSV name to read it (example: file.csv) and exit by typing '0': "))
+        a = str(input("Type your CSV name to read it, and exit by typing '0': "))
 
         if a=="0":
             print("Exiting CSVreader...")
@@ -12,12 +12,18 @@ while True:
             c = rn.choice(LeavingTime)
             tm.sleep(c)
             break
+        elif a.lower()=="i":
+            print(f"\nCSVreader\nFile path: {__file__}\nMADE WITH PYTHON 3.11.4\nPandas version: {pd.__version__}\n")
         else:
-            d = str(input("Would you like the index numbers(y or n)?: "))
+            d = str(input("Would you like the index numbers (y or n)?: "))
             b = pd.read_csv(a)
-            print(b)
-            if d=="n" or d=="N" or d=="no":
-                print(b.to_string(index=False))
+            if d.lower()=="y":
+                print(f"{b}\n")
+            elif d.lower()=="n":
+                print(f"{b.to_string(index=False)}\n")
+            else:
+                print("Please try again. The reader will come back in 3 seconds.")
+                tm.sleep(3)
 
     except FileNotFoundError:
         print("Sorry, but your CSV file was not found. Please try again. The reader will come back in 5 seconds.")
