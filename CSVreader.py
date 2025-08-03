@@ -4,7 +4,7 @@ while True:
         import time as tm
         import random as rn
     
-        a = str(input("Type your CSV name to read it, and exit by typing '0': "))
+        a: str = (input("Type your CSV name to read it, and exit by typing '0': "))
 
         if a=="0":
             print("Exiting CSVreader...")
