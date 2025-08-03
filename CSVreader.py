@@ -8,12 +8,16 @@ while True:
 
         if a=="0":
             print("Exiting CSVreader...")
-            LeavingTime = [0.8,2.1,1.3,5.3,4.3]
-            c = rn.choice(LeavingTime)
-            tm.sleep(c)
             break
         elif a.lower()=="i":
-            print(f"\nCSVreader\nFile path: {__file__}\nMADE WITH PYTHON 3.11.4\nPandas version: {pd.__version__}\n")
+            if __name__ == "__main__":
+
+                print(f"\nCSVreader")
+                print(f"MADE WITH PYTHON 3.11.4\nPandas version: {pd.__version__}\nBeing imported: No\nFile path: {__file__}\n")
+            else:
+
+                print(f"\nCSVreader")
+                print(f"MADE WITH PYTHON 3.11.4\nPandas version: {pd.__version__}\nBeing imported: Yes\nFile path: {__file__}\n")
         else:
             d = str(input("Would you like the index numbers (y or n)?: "))
             b = pd.read_csv(a)
