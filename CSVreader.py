@@ -2,7 +2,7 @@ while True:
     try:    
         import pandas as pd
         import time as tm
-        import random as rn
+        import sys
     
         a: str = (input("Type your CSV name to read it, and exit by typing '0': "))
 
@@ -12,14 +12,20 @@ while True:
         elif a.lower()=="i":
             if __name__ == "__main__":
 
-                print(f"\nCSVreader")
-                print(f"MADE WITH PYTHON 3.11.4\nPandas version: {pd.__version__}\nBeing imported: No\nFile path: {__file__}\n")
+                print(f"\nJSONreader")
+                print(f"MADE WITH PYTHON 3.11.4 | Current Python version: {sys.version:.6}")
+                print(f"MADE WITH PANDAS 2.3.1 | Current Pandas version: {pd.__version__}")
+                print(f"Being imported: No\nFile path: {__file__}")
             else:
 
-                print(f"\nCSVreader")
-                print(f"MADE WITH PYTHON 3.11.4\nPandas version: {pd.__version__}\nBeing imported: Yes\nFile path: {__file__}\n")
+                print(f"\nJSONreader")
+                print(f"MADE WITH PYTHON 3.11.4 | Current Python version: {sys.version:.6}")
+                print(f"MADE WITH PANDAS 2.3.1 | Current Pandas version: {pd.__version__}")
+                print(f"Being imported: Yes\nFile path: {__file__}")
         else:
             d = str(input("Would you like the index numbers (y or n)?: "))
+            json_struct = ".csv"
+            a += json_struct
             b = pd.read_csv(a)
             if d.lower()=="y":
                 print(f"{b}\n")
